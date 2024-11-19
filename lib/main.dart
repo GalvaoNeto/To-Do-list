@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:to_do_list/screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Inicializa o Firebase
-  await Firebase.initializeApp();
-
+  try {
+    await Firebase.initializeApp();
+  } catch (e) {
+    print('Erro ao inicializar o Firebase: $e');
+  }
   runApp(const MyApp());
 }
 
@@ -16,40 +18,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'To-Do List',
+      title: 'Flutter Firebase App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        brightness: Brightness.light,
       ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
-      themeMode: ThemeMode.system, // Alterna automaticamente entre claro e escuro
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('To-Do List'),
-      ),
-      body: const Center(
-        child: Text(
-          'Bem-vindo ao To-Do List!',
-          style: TextStyle(fontSize: 18),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Adicione a lógica para adicionar tarefas
+      home: HomeScreen(
+        toggleTheme: () {
+          // Implementação do tema (por enquanto, pode estar vazia)
         },
-        child: const Icon(Icons.add),
       ),
     );
   }
