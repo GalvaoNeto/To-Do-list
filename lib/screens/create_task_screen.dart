@@ -3,12 +3,12 @@ import 'task.dart';
 
 class CreateTaskScreen extends StatefulWidget {
   final List<String> taskTypes;
-  final Task? task; // Parâmetro opcional para edição de tarefas
+  final Task? task; 
 
   const CreateTaskScreen({
     Key? key,
     required this.taskTypes,
-    this.task, // Inicializando o parâmetro
+    this.task, 
   }) : super(key: key);
 
   @override
@@ -22,12 +22,12 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
   String? _selectedType;
   DateTime? _selectedDate;
   TimeOfDay? _selectedTime;
-  bool _isComplete = false; // Campo para status de conclusão
+  bool _isComplete = false; 
 
   @override
   void initState() {
     super.initState();
-    // Inicializar os campos com os valores da tarefa, se existir
+
     _titleController =
         TextEditingController(text: widget.task?.title ?? '');
     _descriptionController =
@@ -61,7 +61,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
         description: _descriptionController.text,
         type: _selectedType!,
         dateTime: dateTime,
-        isComplete: _isComplete, // Salva o status de conclusão
+        isComplete: _isComplete,
       );
 
       Navigator.pop(context, task);

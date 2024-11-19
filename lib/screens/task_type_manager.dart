@@ -3,7 +3,7 @@ import 'task.dart';
 
 class TaskTypeManager extends StatefulWidget {
   final List<String> taskTypes;
-  final List<Task> tasks; // Lista de tarefas
+  final List<Task> tasks; 
   final Function(List<String>) onTaskTypesChanged;
   final Function(List<Task>) onTasksUpdated;
 
@@ -152,8 +152,8 @@ class _TaskTypeManagerState extends State<TaskTypeManager> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context); // Detecta o tema atual
-    final isDarkMode = theme.brightness == Brightness.dark; // Verifica se o modo escuro está ativado
+    final theme = Theme.of(context); 
+    final isDarkMode = theme.brightness == Brightness.dark; 
 
     return Scaffold(
       appBar: AppBar(
@@ -176,8 +176,8 @@ class _TaskTypeManagerState extends State<TaskTypeManager> {
               type,
               style: TextStyle(
                 color: isDefaultType
-                    ? (isDarkMode ? Colors.grey[400] : Colors.grey[600]) // Cor diferente para tipos padrão
-                    : (isDarkMode ? Colors.white : Colors.black), // Branco no escuro, preto no claro
+                    ? (isDarkMode ? Colors.grey[400] : Colors.grey[600]) 
+                    : (isDarkMode ? Colors.white : Colors.black), 
                 fontStyle: isDefaultType ? FontStyle.italic : FontStyle.normal,
                 fontWeight: isDefaultType ? FontWeight.normal : FontWeight.bold,
               ),

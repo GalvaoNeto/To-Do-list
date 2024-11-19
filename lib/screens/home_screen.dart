@@ -16,8 +16,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final List<Task> tasks = [];
   List<String> taskTypes = ['Todos', 'Comum'];
-  String selectedType = 'Todos'; // Tipo selecionado para o filtro
-  String pendingFilter = 'Todos'; // Filtro de pendência: Todos, Pendentes, Concluídos
+  String selectedType = 'Todos'; 
+  String pendingFilter = 'Todos'; 
   final TextEditingController searchController = TextEditingController();
   String searchQuery = '';
 
@@ -58,7 +58,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Filtrando as tarefas pelo tipo, pendência e pesquisa
     List<Task> filteredTasks = tasks.where((task) {
       bool matchesType =
           selectedType == 'Todos' || task.type == selectedType;
@@ -81,25 +80,25 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.brightness_6),
           ),
           IconButton(
-            onPressed: _showTypeManager, // Abre a tela de gerenciamento de tipos
+            onPressed: _showTypeManager,
             icon: const Icon(Icons.category),
           ),
         ],
       ),
       body: Column(
         children: [
-          // Campo de busca
+          
           custom_search_bar.SearchBar(
             searchController: searchController,
             onSearchChanged: _onSearchChanged,
           ),
-          // Filtros
+          
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                // Filtro de tipos
+                
                 DropdownButton<String>(
                   value: selectedType,
                   onChanged: (value) {
@@ -114,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   }).toList(),
                 ),
-                // Filtro de pendências
+
                 DropdownButton<String>(
                   value: pendingFilter,
                   onChanged: (value) {

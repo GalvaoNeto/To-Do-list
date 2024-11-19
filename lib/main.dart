@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: isDarkMode ? ThemeData.dark() : ThemeData.light(),
-      debugShowCheckedModeBanner: false, // Aqui removemos o nome do parâmetro
+      debugShowCheckedModeBanner: false, 
       home: HomeScreen(toggleTheme: toggleTheme),
     );
   }

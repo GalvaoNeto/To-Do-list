@@ -15,7 +15,7 @@ class _ManageTaskTypesScreenState extends State<ManageTaskTypesScreen> {
   @override
   void initState() {
     super.initState();
-    _taskTypes = List<String>.from(widget.taskTypes); // Copiar a lista de tipos
+    _taskTypes = List<String>.from(widget.taskTypes); 
   }
 
   void _editTaskType(int index) async {
@@ -33,14 +33,14 @@ class _ManageTaskTypesScreenState extends State<ManageTaskTypesScreen> {
           ),
           actions: [
             TextButton(
-              onPressed: () => Navigator.pop(context), // Cancelar
+              onPressed: () => Navigator.pop(context), 
               child: const Text('Cancelar'),
             ),
             TextButton(
               onPressed: () {
                 final newName = _typeController.text.trim();
                 if (newName.isNotEmpty) {
-                  Navigator.pop(context, newName); // Retornar o novo nome
+                  Navigator.pop(context, newName);
                 }
               },
               child: const Text('Salvar'),
@@ -71,14 +71,14 @@ class _ManageTaskTypesScreenState extends State<ManageTaskTypesScreen> {
           ),
           actions: [
             TextButton(
-              onPressed: () => Navigator.pop(context), // Cancelar
+              onPressed: () => Navigator.pop(context),
               child: const Text('Cancelar'),
             ),
             TextButton(
               onPressed: () {
                 final name = _typeController.text.trim();
                 if (name.isNotEmpty) {
-                  Navigator.pop(context, name); // Retornar o novo tipo
+                  Navigator.pop(context, name);
                 }
               },
               child: const Text('Salvar'),
@@ -103,13 +103,13 @@ class _ManageTaskTypesScreenState extends State<ManageTaskTypesScreen> {
         content: const Text('Tem certeza que deseja excluir este tipo?'),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context), // Cancelar
+            onPressed: () => Navigator.pop(context),
             child: const Text('Cancelar'),
           ),
           TextButton(
             onPressed: () {
               setState(() {
-                _taskTypes.removeAt(index); // Remover o tipo
+                _taskTypes.removeAt(index); 
               });
               Navigator.pop(context);
             },
@@ -136,11 +136,11 @@ class _ManageTaskTypesScreenState extends State<ManageTaskTypesScreen> {
               children: [
                 IconButton(
                   icon: const Icon(Icons.edit, color: Colors.blue),
-                  onPressed: () => _editTaskType(index), // Abrir edição
+                  onPressed: () => _editTaskType(index),o
                 ),
                 IconButton(
                   icon: const Icon(Icons.delete, color: Colors.red),
-                  onPressed: () => _deleteType(index), // Excluir tipo
+                  onPressed: () => _deleteType(index),
                 ),
               ],
             ),
