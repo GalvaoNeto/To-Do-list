@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Garante que a inicialização do Firebase ocorra antes do app
-  await Firebase.initializeApp(); // Inicializa o Firebase
-  runApp(const MyApp()); // Inicia o aplicativo
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Inicializa o Firebase
+  await Firebase.initializeApp();
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,10 +16,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Firebase App',
+      title: 'To-Do List',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        brightness: Brightness.light,
       ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+      ),
+      themeMode: ThemeMode.system, // Alterna automaticamente entre claro e escuro
       home: const HomePage(),
     );
   }
@@ -29,10 +37,19 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Firebase Configurado!'),
+        title: const Text('To-Do List'),
       ),
       body: const Center(
-        child: Text('Firebase foi inicializado com sucesso!'),
+        child: Text(
+          'Bem-vindo ao To-Do List!',
+          style: TextStyle(fontSize: 18),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Adicione a lógica para adicionar tarefas
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

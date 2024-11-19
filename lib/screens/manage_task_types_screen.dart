@@ -136,7 +136,7 @@ class _ManageTaskTypesScreenState extends State<ManageTaskTypesScreen> {
               children: [
                 IconButton(
                   icon: const Icon(Icons.edit, color: Colors.blue),
-                  onPressed: () => _editTaskType(index),o
+                  onPressed: () => _editTaskType(index),
                 ),
                 IconButton(
                   icon: const Icon(Icons.delete, color: Colors.red),
