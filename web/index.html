@@ -31,6 +31,28 @@
 
   <title>to_do_list</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- Adicione este código de inicialização do Firebase -->
+  <script type="module">
+    // Importação dos SDKs do Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+
+    // Configuração do Firebase gerada automaticamente
+    const firebaseConfig = {
+      apiKey: "AIzaSyD8fXPdAnQjoGxiGFL42gFLODYfx9uioM4",
+      authDomain: "to-do-list-66bf8.firebaseapp.com",
+      projectId: "to-do-list-66bf8",
+      storageBucket: "to-do-list-66bf8.appspot.com",
+      messagingSenderId: "586389757093",
+      appId: "1:586389757093:web:adfa816dd96375938e814c",
+      measurementId: "G-BP0E787T54",
+    };
+
+    // Inicialização do Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
